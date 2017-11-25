@@ -1,0 +1,31 @@
+.myform {
+  margin: auto;
+  text-align: center;
+}
+
+.myinput {
+  max-width: 300px;
+  width: 100%;
+  background: #fff;
+  border-radius: 2px;
+  padding: 15px;
+  margin: 10px;
+  border: none;
+  outline: none;
+}
+
+.mybutton {
+  max-width: 150px;
+  width: 100%;
+  background: #eef2f7;
+  border-radius: 6px;
+  border: none;
+  padding: 15px;
+  font-family: Roboto;
+  margin: 10px;
+}
+
+.mybutton:focus,
+.mybutton:hover {
+  background: #ccc;
+}

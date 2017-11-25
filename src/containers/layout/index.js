@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import classNames from 'classnames';
 
-
 import {fetch} from '../../actions';
+
+import './style.css'
 
 class Layout extends Component {
 
@@ -18,11 +19,27 @@ class Layout extends Component {
                 <div className="row">
                  <div className="col-md-3"></div>
                  <div className="col-md-6">
-                    <form>
-                        <input></input>
-                        <input></input>
-                        <input></input>
-                        <button></button>
+                    <form className="myform">
+                        <input className="myinput" placeholder="Your id"></input>
+                        <div>
+                            <select className="myinput">
+                                <option>Choose organization</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div>
+                            <select className="myinput">
+                                <option>Choose qualification</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <button className="mybutton">Отправить</button>
                     </form>
                 </div>
                 <div className="col-md-3"></div>
