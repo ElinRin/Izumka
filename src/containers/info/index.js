@@ -9,7 +9,8 @@ import './style.css'
 const data = {
     name : "Пётр",
     1: {"org": "МФТИ", "date": "2010-2014", "qua": "Бакалавриат" },
-    2: {"org": "ВШЭ", "date": "2015-2017", "qua": "Магистратура" }
+    2: {"org": "ВШЭ", "date": "2015-2017", "qua": "Магистратура" },
+    3: {"org": "Вуз-шмуз", "date": "2014-2017", "qua": "Доп курсы-шмурсы" }
   };
 
 function isRow(data, item) { 
@@ -36,14 +37,14 @@ class Info extends Component {
         return (
             <div className="container">
                 <div className="row">
-                <div className="col-md-3"></div>
-                <div className="col-md-6">
+                <div className="col-md-2"></div>
+                <div className="col-md-8">
                 <div className="div-center">
                 <h2>Информация о квалификации</h2>
-                <table className="table mytable">
+                <table className="table table-hover mytable">
                     <thead>
                         <tr>
-                        <th colSpan='4'>{data.name}</th>
+                        <th colSpan='4' className="table-head">{data.name}</th>
                         </tr>
                         <tr>
                         <th>#</th>
@@ -62,7 +63,7 @@ class Info extends Component {
                     </table>
                 </div>
                 </div>
-                <div className="col-md-3"></div>
+                <div className="col-md-2"></div>
                 </div>
             </div>
         )

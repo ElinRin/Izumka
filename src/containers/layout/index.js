@@ -45,7 +45,6 @@ class Layout extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        console.log(this.state.idIn);
         
         const {type} = this.props.params;
 
@@ -72,13 +71,13 @@ class Layout extends Component {
 
     renderFields() {
         return (
-            <div>
+            <div> 
                 <div>
                     <select
                         className="myinput"
                         name="organization"
                         onChange={this.handleInputChange}>
-                        <option>Выберите огранизацию</option>
+                        <option>Выберите организацию</option>
                         <option>МФТИ</option>
                         <option>МГУ</option>
                         <option>МИСиС</option>
@@ -107,7 +106,7 @@ class Layout extends Component {
                  <div className="col-md-3"></div>
                  <div className="col-md-6">
                     <h2>Запрос</h2>
-                    <form className="myform" onSubmit={this.handleSubmit}>
+                    <form className="div-center" onSubmit={this.handleSubmit}>
                         <div>
                             <input
                                 className="myinput"
