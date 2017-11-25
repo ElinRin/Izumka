@@ -11,6 +11,7 @@ import {Provider} from 'react-redux';
 
 import reducers from './reducers';
 import Layout from './containers/layout';
+import Info from './containers/info';
 
 
 const store = createStore(reducers, composeWithDevTools(
@@ -23,6 +24,7 @@ ReactDOM.render(
     <Provider store={store}>
         <Router history={history}>
             <Route path='/' component={Layout} />
+            <Route path='/info' component={Info} />
         </Router>
     </Provider>,
     document.getElementById('root')
