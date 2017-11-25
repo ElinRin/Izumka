@@ -1,25 +1,50 @@
 import {
-    FETCH_START,
-    FETCH_SUCCESS,
-    FETCH_FAILURE
+    GET_START,
+    GET_SUCCESS,
+    GET_FAILURE,
+    POST_START,
+    POST_SUCCESS,
+    POST_FAILURE,
+    SET_ID
 } from './actionTypes';
 
 import {
-    fetchApi
+    getDataApi,
+    postDataApi
 } from '../api';
 
-export const fetch = () => async dispatch => {
-    dispatch({type: FETCH_START});
+export const getData = () => async dispatch => {
+    dispatch({type: GET_START});
 
     try {
-        const data = await fetchApi();
+        const data = await getDataApi();
         dispatch({
-            type: FETCH_SUCCESS,
+            type: GET_SUCCESS,
             payload: data
         });
     } catch (err) {
         dispatch({
-            type: FETCH_FAILURE,
+            type: GET_FAILURE,
+            payload: err,
+            error: true
+        });
+    }
+
+};
+
+export const postData = (data) => async dispatch => {
+    dispatch({type: POST_START});
+    console.log(data);
+
+    try {
+        const answer = await postDataApi();
+        dispatch({
+            type: POST_SUCCESS,
+            payload: answer
+        });
+    } catch (err) {
+        dispatch({
+            type: POST_FAILURE,
             payload: err,
             error: true
         });

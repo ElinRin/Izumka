@@ -2,16 +2,64 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import classNames from 'classnames';
 
-import {fetch} from '../../actions';
+import './style.css';
 
-import './style.css'
+import {
+    getData,
+    postData
+} from '../../actions';
+
+const validateRequire = value => !value;
 
 class Layout extends Component {
-
-    componentDidMount() {
-        const {} = this.props;
-        fetch();
-    };
+    constructor() {
+        super();
+    
+        this.state = {
+          id: '',
+          organization: '',
+          qualifications: ''
+        };
+      }
+    
+      formClear() {
+        this.setState({
+          id: '',
+          organization: '',
+          qualifications: ''
+        });
+      }
+    
+      validationsForm() {
+        let status = true;
+    
+        Object.keys(this.state).forEach(item => {
+          if (validateRequire(this.state[item])) {
+            status = false;
+            return false;
+          }
+        });
+    
+        return status;
+      }
+    
+      handleSubmit = event => {
+        event.preventDefault();
+    
+        if (!this.validationsForm()) {
+          return;
+        }
+    
+        this.props.postData(this.state);
+        this.formClear();
+      };
+    
+      handleInputChange = event => {
+        this.setState({
+          [event.target.name]: event.target.value
+        });
+      };
+    
 
     render () {
         return (
@@ -19,27 +67,42 @@ class Layout extends Component {
                 <div className="row">
                  <div className="col-md-3"></div>
                  <div className="col-md-6">
-                    <form className="myform">
-                        <input className="myinput" placeholder="Your id"></input>
+                    <h2>Запрос</h2>
+                    <form className="myform" onSubmit={this.handleSubmit}>
+                        <input
+                            className="myinput"
+                            placeholder="Your id"
+                            value={this.state.id}
+                            name="id"
+                            onChange={this.handleInputChange}>
+                        </input>
                         <div>
-                            <select className="myinput">
+                            <select
+                                className="myinput"
+                                name="organization"
+                                onChange={this.handleInputChange}>
                                 <option>Choose organization</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                <option>МФТИ</option>
+                                <option>МГУ</option>
+                                <option>МИСиС</option>
                             </select>
                         </div>
                         <div>
-                            <select className="myinput">
+                            <select
+                                className="myinput"
+                                name="qualifications"
+                                onChange={this.handleInputChange}>
                                 <option>Choose qualification</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                <option>БАКАЛАВРИАТ</option>
+                                <option>МАГИСТРАТУРА</option>
+                                <option>АСПИРАНТУРА</option>
                             </select>
                         </div>
-                        <button className="mybutton">Отправить</button>
+                        <button
+                            className="mybutton"
+                            type="submit">
+                            Отправить
+                        </button>
                     </form>
                 </div>
                 <div className="col-md-3"></div>
@@ -53,6 +116,8 @@ const mapStateToProps = state => {
     return {}
 };
   
-const mapDispatchToProps = {fetch};
+const mapDispatchToProps = {
+    postData
+};
   
 export default connect(mapStateToProps, mapDispatchToProps)(Layout);
