@@ -1,0 +1,7 @@
+# Synchronized with .dockerignore.
+.idea
+*.log
+build
+__pycache__
+*.pyc
+/node_modules
