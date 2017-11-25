@@ -68,10 +68,10 @@ class Layout extends Component {
                  <div className="col-md-3"></div>
                  <div className="col-md-6">
                     <h2>Запрос</h2>
-                    <form className="myform" onSubmit={this.handleSubmit}>
+                    <form className="div-center" onSubmit={this.handleSubmit}>
                         <input
                             className="myinput"
-                            placeholder="Your id"
+                            placeholder="Ваш id"
                             value={this.state.id}
                             name="id"
                             onChange={this.handleInputChange}>
@@ -81,7 +81,7 @@ class Layout extends Component {
                                 className="myinput"
                                 name="organization"
                                 onChange={this.handleInputChange}>
-                                <option>Choose organization</option>
+                                <option>Выберите огранизацию</option>
                                 <option>МФТИ</option>
                                 <option>МГУ</option>
                                 <option>МИСиС</option>
@@ -92,10 +92,10 @@ class Layout extends Component {
                                 className="myinput"
                                 name="qualifications"
                                 onChange={this.handleInputChange}>
-                                <option>Choose qualification</option>
-                                <option>БАКАЛАВРИАТ</option>
-                                <option>МАГИСТРАТУРА</option>
-                                <option>АСПИРАНТУРА</option>
+                                <option>Выберите квалификацию</option>
+                                <option>Бакалавриат</option>
+                                <option>Магистратура</option>
+                                <option>Аспирантура</option>
                             </select>
                         </div>
                         <button

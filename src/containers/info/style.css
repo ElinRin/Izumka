@@ -1,32 +1,7 @@
-.myform {
-  margin: auto;
-  text-align: center;
-}
-
-.myinput {
-  max-width: 300px;
-  width: 100%;
+.mytable {
   background: #fff;
-  border-radius: 2px;
-  padding: 12px;
-  margin: 10px;
-  border: none;
-  outline: none;
 }
 
-.mybutton {
-  max-width: 150px;
-  width: 100%;
-  background: #eef2f7;
-  color: #000;
-  border-radius: 30px;
-  border: none;
-  padding: 15px;
-  font-family: Roboto;
-  margin: 10px;
-}
-
-.mybutton:focus,
-.mybutton:hover {
-  background: #ccc;
+th {
+  text-align: center;
 }

@@ -6,6 +6,25 @@ import {fetch} from '../../actions';
 
 import './style.css'
 
+const data = {
+    name : "Пётр",
+    1: {"org": "МФТИ", "date": "2010-2014", "qua": "Бакалавриат" },
+    2: {"org": "ВШЭ", "date": "2015-2017", "qua": "Магистратура" }
+  };
+
+function isRow(data, item) { 
+    if (item !== 'name') {
+        return (
+            <tr>
+            <th scope="row">{item}</th>
+            <td>{data[item].org}</td>
+            <td>{data[item].date}</td>
+            <td>{data[item].qua}</td>
+            </tr>
+        )
+    }
+}
+
 class Info extends Component {
 
     componentDidMount() {
@@ -13,13 +32,35 @@ class Info extends Component {
         fetch();
     };
 
-    render () {
+    render ( ) {
         return (
             <div className="container">
                 <div className="row">
-                 <div className="col-md-3"></div>
-                 <div className="col-md-6">
-                    
+                <div className="col-md-3"></div>
+                <div className="col-md-6">
+                <div className="div-center">
+                <h2>Информация о квалификации</h2>
+                <table className="table mytable">
+                    <thead>
+                        <tr>
+                        <th colSpan='4'>{data.name}</th>
+                        </tr>
+                        <tr>
+                        <th>#</th>
+                        <th>Организация</th>
+                        <th>Даты</th>
+                        <th>Квалификация</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {
+                        Object.keys(data).map((item) => (
+                            isRow(data, item)
+                        ))
+                    }
+                    </tbody>
+                    </table>
+                </div>
                 </div>
                 <div className="col-md-3"></div>
                 </div>
