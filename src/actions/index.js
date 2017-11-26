@@ -1,5 +1,5 @@
 import { browserHistory } from 'react-router';
-import { process } from '../processContract';
+import { processRequest, getInfo } from '../processContract';
 import {
     GET_START,
     GET_SUCCESS,
@@ -22,33 +22,35 @@ const postSuccess = (data) => {
    };
 };
 
-export const getData = (request) => async dispatch => {
-    dispatch({type: GET_START});
-    console.log(request);
+const getStart = (userId) => {
+    return {
+        type: GET_START,
+        payload: userId
+    };
+};
 
-    try {
-        const data = await getDataApi(request);
-        dispatch({
-            type: GET_SUCCESS,
-            payload: data
-        });
-    } catch (err) {
-        dispatch({
-            type: GET_FAILURE,
-            payload: err,
-            error: true
-        });
-    }
+export const getData = (request) => async dispatch => {
+    //dispatch(getStart(request));
+    console.log(request);
+    getInfo(request);
+    // try {
+    //     const data = await getDataApi(request);
+    //     dispatch({
+    //         type: GET_SUCCESS,
+    //         payload: data
+    //     });
+    // } catch (err) {
+    //     dispatch({
+    //         type: GET_FAILURE,
+    //         payload: err,
+    //         error: true
+    //     });
+    //}
 
 };
 
 export const postData = (request, link) => async dispatch => {
     //dispatch(postSuccess(request)); // FIX ME
-    process(request);
+    processRequest(request);
     dispatch(browserHistory.push(link));
-};
-
-export const postAndGetData = (request) => async dispatch => {
-    //dispatch(postSuccess(request)); // FIX ME
-    process(request);
 };
