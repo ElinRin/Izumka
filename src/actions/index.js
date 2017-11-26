@@ -45,5 +45,5 @@ export const getData = (request) => async dispatch => {
 export const postData = (request) => async dispatch => {
     //dispatch(postSuccess(request)); // FIX ME
     process(request);
-    dispatch(browserHistory.push('/complite'));
+    dispatch(browserHistory.push('/complete'));
 };
