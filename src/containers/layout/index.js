@@ -74,7 +74,7 @@ class Layout extends Component {
             <div> 
                 <div>
                     <select
-                        className="myinput"
+                        className="myinput myselector"
                         name="organization"
                         onChange={this.handleInputChange}>
                         <option>Выберите организацию</option>
@@ -85,7 +85,7 @@ class Layout extends Component {
                 </div>
                 <div>
                     <select
-                        className="myinput"
+                        className="myinput myselector"
                         name="qualifications"
                         onChange={this.handleInputChange}>
                         <option>Выберите квалификацию</option>
