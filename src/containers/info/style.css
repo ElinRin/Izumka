@@ -1,33 +1,11 @@
 .mytable {
-  background: #fff;
+  color: #fff;
   margin-top: 20px;
   overflow: hidden;
   width: 100%;
 }
 
-.table-head {
-  text-align: center;
-  color: #fff;
-  background-color: rgba(11, 39, 100, 0.815);
-  font-family: Roboto;
-  font-size: 20px;
-  font-weight: 300;
-  padding-top: 10px;
-}
-
-th {
-  color: rgba(11, 39, 100, 0.815);
-  text-align: center;
-}
-
 th, td {
   padding: 10px;
-}
-
-.glow {
-	background: #fff;
-  box-shadow: inset rgba(11, 39, 100, 0.815) 0 0 60px 1px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  padding-bottom: 10px;
+  text-align: center;
 }

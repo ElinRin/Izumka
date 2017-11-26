@@ -3,7 +3,7 @@ export const getDataApi = async (request) => {
     const URL = '';
     //return fetch(URL).then(res => res.json());
     const data = {
-        name : "Пётр",
+        name : "Крашенинников Александр Всеславович",
         organizations: {
             a: {"org": "МФТИ", "date": "2010-2014", "qua": "Бакалавриат" },
             b: {"org": "ВШЭ", "date": "2015-2017", "qua": "Магистратура" },

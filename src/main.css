@@ -16,3 +16,15 @@ body {
     color: #545255 !important;
     outline: none;
 }
+
+thead {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background: #fff;
+    color: #000;
+}
+
+table {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}

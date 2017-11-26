@@ -33,10 +33,9 @@ class Info extends Component {
 
     const {info} = this.props;
     return (
-        <div className="div-center">
-        <h2>Информация о квалификации</h2>
+        <div className="div-center" style={{marginTop: '50px'}}>
         <h2>{info.name}</h2>
-        <table className="mytable glow">
+        <table className="table mytable">
             <thead>
                 <tr>
                 <th>Организация</th>
