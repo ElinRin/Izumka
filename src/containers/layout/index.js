@@ -4,7 +4,8 @@ import classNames from 'classnames';
 import {Link} from 'react-router';
 import R from 'ramda';
 
-import Info from '../info'
+import Info from '../info';
+import Return from '../return';
 
 import './style.css';
 
@@ -139,6 +140,11 @@ class Layout extends Component {
         const {type} = this.props.params;
         return (
             <div className="container">
+                <div className="row">
+                    <div className="col-md-12">
+                        <Return/>
+                    </div>
+                </div>
                 <div className="row">
                  <div className="col-md-3"></div>
                  <div className="col-md-6">
