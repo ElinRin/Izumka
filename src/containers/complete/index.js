@@ -1,27 +1,9 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
-import classNames from 'classnames';
-
-import {
-    getData,
-    postData
-} from '../../actions';
-
-const validateRequire = value => !value;
 
 class Complete extends Component {
-    constructor() {
-        super();
-
-        this.state = {
-          idIn: '',
-          organization: '',
-          qualifications: ''
-        };
-    };
 
     render () {
-        const {type} = this.props.params;
         return (
             <div className="container">
                 <div className="row">
@@ -38,12 +20,4 @@ class Complete extends Component {
     };
 };
 
-const mapStateToProps = state => {
-    return {}
-};
-
-const mapDispatchToProps = {
-    postData
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Complete);
+export default Complete;

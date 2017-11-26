@@ -12,7 +12,8 @@ import {Provider} from 'react-redux';
 import reducers from './reducers';
 import Layout from './containers/layout';
 import Info from './containers/info';
-import Complete from './containers/complete/'
+import Complete from './containers/complete/';
+import Main from './containers/main/';
 
 const store = createStore(reducers, composeWithDevTools(
     applyMiddleware(thunk)
@@ -23,6 +24,7 @@ const history = syncHistoryWithStore(browserHistory, store);
 ReactDOM.render(
     <Provider store={store}>
         <Router history={history}>
+            <Route path='/' component={Main} />
             <Route path='/request/:type' component={Layout} />
             <Route path='/info' component={Info} />
             <Route path='/complete' component={Complete} />
