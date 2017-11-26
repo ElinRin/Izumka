@@ -21,6 +21,7 @@ class Info extends Component {
     }
 
     render ( ) {
+        const {info} = this.props;
         return (
             <div className="container">
                 <div className="row">
@@ -31,7 +32,7 @@ class Info extends Component {
                 <table className="table table-hover mytable">
                     <thead>
                         <tr>
-                        <th colSpan='4' className="table-head">{data.name}</th>
+                        <th colSpan='4' className="table-head">{info.name}</th>
                         </tr>
                         <tr>
                         <th>#</th>
@@ -61,7 +62,9 @@ class Info extends Component {
 };
 
 const mapStateToProps = state => {
-    return {}
+    return {
+        info: state.info
+    }
 };
   
 const mapDispatchToProps = {fetch};
