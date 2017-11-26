@@ -12,6 +12,7 @@ import {Provider} from 'react-redux';
 import reducers from './reducers';
 import Layout from './containers/layout';
 import Info from './containers/info';
+import Complite from './containers/complite/'
 
 
 const store = createStore(reducers, composeWithDevTools(
@@ -25,6 +26,7 @@ ReactDOM.render(
         <Router history={history}>
             <Route path='/request/:type' component={Layout} />
             <Route path='/info' component={Info} />
+            <Route path='/complite' component={Complite} />
         </Router>
     </Provider>,
     document.getElementById('root')
