@@ -13,11 +13,12 @@ import {
     postDataApi
 } from '../api';
 
-export const getData = () => async dispatch => {
+export const getData = (request) => async dispatch => {
     dispatch({type: GET_START});
+    console.log(request);
 
     try {
-        const data = await getDataApi();
+        const data = await getDataApi(request);
         dispatch({
             type: GET_SUCCESS,
             payload: data
@@ -32,12 +33,12 @@ export const getData = () => async dispatch => {
 
 };
 
-export const postData = (data) => async dispatch => {
+export const postData = (request) => async dispatch => {
     dispatch({type: POST_START});
-    console.log(data);
+    console.log(request);
 
     try {
-        const answer = await postDataApi();
+        const answer = await postDataApi(request);
         dispatch({
             type: POST_SUCCESS,
             payload: answer

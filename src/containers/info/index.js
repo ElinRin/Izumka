@@ -6,34 +6,22 @@ import {fetch} from '../../actions';
 
 import './style.css'
 
-const data = {
-    name : "Пётр",
-    1: {"org": "МФТИ", "date": "2010-2014", "qua": "Бакалавриат" },
-    2: {"org": "ВШЭ", "date": "2015-2017", "qua": "Магистратура" },
-    3: {"org": "Вуз-шмуз", "date": "2014-2017", "qua": "Доп курсы-шмурсы" }
-  };
+class Info extends Component {
 
-function isRow(data, item) { 
-    if (item !== 'name') {
+    renderOrganizations(organization) {
         return (
             <tr>
-            <th scope="row">{item}</th>
-            <td>{data[item].org}</td>
-            <td>{data[item].date}</td>
-            <td>{data[item].qua}</td>
+                <th>
+                    <td>{organization.org}</td>
+                    <td>{organization.date}</td>
+                    <td>{organization.qua}</td>
+                </th>
             </tr>
         )
     }
-}
-
-class Info extends Component {
-
-    componentDidMount() {
-        const {} = this.props;
-        fetch();
-    };
 
     render ( ) {
+        const {info} = this.props;
         return (
             <div className="container">
                 <div className="row">
@@ -44,7 +32,7 @@ class Info extends Component {
                 <table className="table table-hover mytable">
                     <thead>
                         <tr>
-                        <th colSpan='4' className="table-head">{data.name}</th>
+                        <th colSpan='4' className="table-head">{info.name}</th>
                         </tr>
                         <tr>
                         <th>#</th>
@@ -53,10 +41,13 @@ class Info extends Component {
                         <th>Квалификация</th>
                         </tr>
                     </thead>
+                    <h2>{info.name}</h2>
                     <tbody>
                     {
-                        Object.keys(data).map((item) => (
-                            isRow(data, item)
+                        Object.keys(info.organizations).map((org, index) => ( 
+                            <div key={index}>
+                                {this.renderOrganizations(org)}
+                            </div>
                         ))
                     }
                     </tbody>
@@ -71,7 +62,9 @@ class Info extends Component {
 };
 
 const mapStateToProps = state => {
-    return {}
+    return {
+        info: state.info
+    }
 };
   
 const mapDispatchToProps = {fetch};
