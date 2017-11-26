@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 var Web3 = require('web3');
 var web3 = new Web3();
 
@@ -6,10 +5,7 @@ var web3 = new Web3('http://localhost:8545');
 
 // web3.setProvider(new web3.providers.HttpProvider());
 
-export const getDataApi = async () => {
-=======
 export const getDataApi = async (request) => {
->>>>>>> 83c271131631da25ca90f16ba1ab60d3cb975e4e
     const URL = '';
     //return fetch(URL).then(res => res.json());
     const data = {
@@ -23,13 +19,8 @@ export const getDataApi = async (request) => {
     return data;
 };
 
-<<<<<<< HEAD
-export const postDataApi = async () => {
-    // const URL = '';
-=======
 export const postDataApi = async (request) => {
     const URL = '';
->>>>>>> 83c271131631da25ca90f16ba1ab60d3cb975e4e
     return fetch('url', {
         method: 'POST',
         body: 'foo=bar'
