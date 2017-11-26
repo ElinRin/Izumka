@@ -33,7 +33,7 @@ let compiled = solc.compile(source);
 meta = JSON.parse(compiled.contracts[':Izum'].metadata);
 abi = meta['output']['abi'];
 
-let contract_addr = "0x17bea72120aaaf3cc5f4a9792c8cbc43d9783217";
+let contract_addr = "0xff6253eadd71d39ff383ea93c4b4bf4e5d8acac2";
 web3.setProvider(new web3.providers.HttpProvider("http://localhost:8545"));
 
 let contract = web3.eth.contract(abi).at(contract_addr);
@@ -42,12 +42,11 @@ const SEPARATOR = "&";
 // let fields_str = field_list.join(SEPARATOR);
 // let field_list = fields_str.split(SEPARATOR);
 
-const getAllRecords = (eth_addr) => {
+const getAllRecords = (client_addr) => {
     let records = [];
-    let number = contract.getCertificatesNumber(eth_addr);
+    let number = contract.getCertificatesNumber(client_addr);
     for (let i = 0; i < number; ++i) {
-        let fields_str = contract.getCertificates(eth_addr, i);
-        console.log("log: ", fields_str);
+        let fields_str = contract.getCertificates(client_addr, i);
 
         let field_list = fields_str.split(SEPARATOR);
         records.push(field_list);
@@ -59,16 +58,27 @@ const addRecord = (client_addr, field_list, authority_addr) => {
     let fields_str = field_list.join(SEPARATOR);
     // let data = contract.addCertificate.getData(client_addr, fields_str);
     // web3.eth.sendTransaction({to:contract_addr, from: authority_addr, data: data});
-    contract.addCertificate.sendTransaction(client_addr, fields_str, {from: authority_addr})
+    contract.addCertificate.sendTransaction(client_addr, fields_str, {from: authority_addr, gas: 4000000})
 };
 
-const test = () => {
-    let client_addr = "0x16086437cec89335c945045235881da4da816f57";
-    let client_addr = "0x16086437cec89335c945045235881da4da816f57";
-    addRecord(addr, ["МФТИ", "Бакалавр", "06.2014-06.2018", "ФИВТ, Кафедра Анализа Данных"]);
-    addRecord(addr, ["МГУ", "Аспирантура", "06.2010-06.2012", "ВМК, Кафедра Филологии"]);
+const info_by_addr = {
+    web3.eth.accounts[0] : "МФТИ (ГУ)",
+}
 
-    console.log(getAllRecords(addr));
+const initialize = () => {
+
+;
+
+const test = () => {
+    let authority_addr = web3.eth.accounts[0];
+    let client_addr = web3.eth.accounts[4];
+
+    addRecord(client_addr, ["МФТИ", "Бакалавр", "06.2014-06.2018", "ФИВТ, Кафедра Анализа Данных"], authority_addr);
+    addRecord(client_addr, ["МГУ", "Аспирантура", "06.2010-06.2012", "ВМК, Кафедра Филологии"], authority_addr);
+
+    // console.log("first_record: ", contract.getCertificates(client_addr, 0));
+
+    console.log(getAllRecords(client_addr));
 };
 
 test();
