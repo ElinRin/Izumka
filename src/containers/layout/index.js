@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import classNames from 'classnames';
+import {Link} from 'react-router';
 
 import './style.css';
 
@@ -72,9 +73,9 @@ class Layout extends Component {
     renderFields() {
         return (
             <div> 
-                <div>
+                <div className="myinput">
                     <select
-                        className="myinput myselector"
+                        className="myselector"
                         name="organization"
                         onChange={this.handleInputChange}>
                         <option>Выберите организацию</option>
@@ -83,9 +84,9 @@ class Layout extends Component {
                         <option>МИСиС</option>
                     </select>
                 </div>
-                <div>
+                <div className="myinput">
                     <select
-                        className="myinput myselector"
+                        className="myselector"
                         name="qualifications"
                         onChange={this.handleInputChange}>
                         <option>Выберите квалификацию</option>
@@ -100,6 +101,7 @@ class Layout extends Component {
 
     render () {
         const {type} = this.props.params;
+        const link = +type ? '/complite' : '/info' ;
         return (
             <div className="container">
                 <div className="row">
@@ -110,18 +112,20 @@ class Layout extends Component {
                         <div>
                             <input
                                 className="myinput"
-                                placeholder="Your id"
+                                placeholder="Ваш id"
                                 value={this.state.idIn}
                                 name="idIn"
                                 onChange={this.handleInputChange}>
                             </input>
                         </div>
                         {+type ? this.renderFields() : ''}
-                        <button
-                            className="mybutton"
-                            type="submit">
-                            Отправить
-                        </button>
+                        <Link to={link}>
+                            <button
+                                className="mybutton"
+                                type="submit">
+                                Отправить
+                            </button>
+                        </Link>
                     </form>
                 </div>
                 <div className="col-md-3"></div>

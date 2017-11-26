@@ -22,15 +22,23 @@ h2 {
   background: #fff;
   border-radius: 20px;
   padding: 15px;
-  margin: 10px auto;
+  margin: 15px auto;
   border: none;
   outline: none;
   transition: all 0.8s;
 }
 
-.myselector:active {
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
+.myinput:hover, .myselector:hover {
+  letter-spacing: 0.05em;
+}
+
+.myselector {
+  background: transparent;
+  margin: auto;
+  outline: none;
+  border: none;
+  width: 100%;
+  transition: all 0.8s;
 }
 
 .mybutton {
