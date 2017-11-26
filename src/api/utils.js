@@ -38,16 +38,24 @@ web3.setProvider(new web3.providers.HttpProvider(local));
 
 let contract = web3.eth.contract(abi).at(address);
 
-let result = contract.getCertificates(12, 0);
-
+const SEPARATOR = "&";
+// let fields_str = field_list.join(SEPARATOR);
+// let field_list = fields_str.split(SEPARATOR);
 
 const getAllRecords = (eth_id) => {
+    let records = [];
+    while (true) {
+        let fields_str = contract.getCertificates(12, 0);
+        if (fields_str == null || fields_str == "") {
+            break;
+        }
+        let field_list = fields_str.split(SEPARATOR);
+        records.push(field_list)
+    }
+    return records;
 };
 
-//
-// export const getDataApi = async (request) => {
-    // if (typeof request === 'undefined') {
-    //     request = '0x123';
-    // }
-    //
-    //
+const addRecord = (eth_id, field_list) => {
+    let fields_str = field_list.join(SEPARATOR);
+    contract.addRecord(eth_id, fields_str);
+};
