@@ -84,7 +84,7 @@ class Layout extends Component {
 
     renderFields1() {
         return (
-            <div> 
+            <div className='container'> 
                 <div className="myinput">
                     <select
                         className="myselector"
@@ -120,17 +120,21 @@ class Layout extends Component {
     
     renderFields2() {
         return (
-            <div>
-                <div> 
-                    <button
-                        className="mybutton button-big"
-                        type="submit"
-                        onClick={this.handleSubmit}>
-                        Получить информацию
-                    </button>
+            <div className='container'>
+                <div className='row'> 
+                    <div className='col-md-12'> 
+                        <button
+                            className="mybutton button-big"
+                            type="submit"
+                            onClick={this.handleSubmit}>
+                            Получить информацию
+                        </button>
+                    </div>
                 </div>
-                <div>
-                    {this.state.clickButton && <Info/>}
+                <div className='row'>
+                    <div className='col-md-12'> 
+                        {this.state.clickButton && <Info/>}
+                    </div>
                 </div>
             </div>
         )
@@ -146,11 +150,10 @@ class Layout extends Component {
                     </div>
                 </div>
                 <div className="row">
-                 <div className="col-md-3"></div>
-                 <div className="col-md-6">
+                 <div className="col-md-12">
                     <h2>Запрос</h2>
                     <form className="div-center" onSubmit={this.handleSubmit}>
-                        <div>
+                        <div className='container'>
                             <input
                                 className="myinput"
                                 placeholder="Ваш id"
@@ -159,11 +162,9 @@ class Layout extends Component {
                                 onChange={this.handleInputChange}>
                             </input>
                         </div>
-                        {+type ? this.renderFields1() : this.renderFields2()}
-                            
+                        {+type ? this.renderFields1() : this.renderFields2()}    
                     </form>
                 </div>
-                <div className="col-md-3"></div>
                 </div>
             </div>
         )

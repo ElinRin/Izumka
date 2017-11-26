@@ -20,12 +20,12 @@ class Info extends Component {
 
         return (
             values.map((value, index) =>  (
-                        <tr key={index}>
-                            <td>{index + 1}</td>
-                            <td>{value.org}</td>
-                            <td>{value.date}</td>
-                            <td>{value.qua}</td>
-                        </tr>
+                        <div key={index}>
+                            <h3>{value.org}</h3>
+                            <div>
+                                <h4>{value.date}&nbsp; {value.qua}</h4>
+                            </div>
+                        </div>
             ))
         )
     }
@@ -35,23 +35,8 @@ class Info extends Component {
     const {info} = this.props;
     return (
         <div className="div-center">
-        <h2>Информация о квалификации</h2>
-        <table className="table table-hover mytable">
-            <thead>
-                <tr>
-                <th colSpan='4' className="table-head">{info.name}</th>
-                </tr>
-                <tr>
-                <th>#</th>
-                <th>Организация</th>
-                <th>Даты</th>
-                <th>Квалификация</th>
-                </tr>
-            </thead>
-            <tbody>
-                    {info.organizations && this.renderOrganizations(info.organizations)}
-            </tbody>
-            </table>
+        <h2>{info.name}</h2>
+            {info.organizations && this.renderOrganizations(info.organizations)}
         </div>
     )
     }
