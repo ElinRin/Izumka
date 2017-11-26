@@ -69,7 +69,7 @@ class Layout extends Component {
             if (validateRequire(this.state.data.idIn)) {
                 return;
             }
-            this.props.postAndGetData(this.state.data.idIn);
+            this.props.getData(this.state.data.idIn);
         }
         
         this.formClear();
@@ -177,7 +177,7 @@ const mapStateToProps = state => {
   
 const mapDispatchToProps = {
     postData,
-    postAndGetData
+    getData
 };
   
 export default connect(mapStateToProps, mapDispatchToProps)(Layout);
