@@ -72,9 +72,9 @@ class Layout extends Component {
     renderFields() {
         return (
             <div> 
-                <div>
+                <div className="myinput">
                     <select
-                        className="myinput myselector"
+                        className="myselector"
                         name="organization"
                         onChange={this.handleInputChange}>
                         <option>Выберите организацию</option>
@@ -83,9 +83,9 @@ class Layout extends Component {
                         <option>МИСиС</option>
                     </select>
                 </div>
-                <div>
+                <div className="myinput">
                     <select
-                        className="myinput myselector"
+                        className="myselector"
                         name="qualifications"
                         onChange={this.handleInputChange}>
                         <option>Выберите квалификацию</option>
@@ -110,7 +110,7 @@ class Layout extends Component {
                         <div>
                             <input
                                 className="myinput"
-                                placeholder="Your id"
+                                placeholder="Ваш id"
                                 value={this.state.idIn}
                                 name="idIn"
                                 onChange={this.handleInputChange}>
