@@ -30,8 +30,8 @@ let source = fs.readFileSync('contracts/izum.sol', 'utf8');
 //     "}";
 
 let compiled = solc.compile(source);
-meta = JSON.parse(compiled.contracts[':Izum'].metadata);
-abi = meta['output']['abi'];
+let meta = JSON.parse(compiled.contracts[':Izum'].metadata);
+let abi = meta['output']['abi'];
 
 let contract_addr = "0xff6253eadd71d39ff383ea93c4b4bf4e5d8acac2";
 web3.setProvider(new web3.providers.HttpProvider("http://localhost:8545"));
@@ -61,13 +61,22 @@ const addRecord = (client_addr, field_list, authority_addr) => {
     contract.addCertificate.sendTransaction(client_addr, fields_str, {from: authority_addr, gas: 4000000})
 };
 
-const info_by_addr = {
-    web3.eth.accounts[0] : "МФТИ (ГУ)",
+const names = [
+    "Денисова Элина Владимировна",
+    "Бобровская Наталия Сергеевна",
+    "Леонтиева Ксения Владимировна",
+    "Немилов Михаил Александрович",
+    "Зигмунд Фрейд",
+    "Павлов Иван Петрович"
+];
+
+let id_to_name = {};
+
+for (let i = 0; i < names.length; ++i) {
+    id_to_name[web3.eth.accounts[i + 3]] = names[i];
 }
 
-const initialize = () => {
 
-;
 
 const test = () => {
     let authority_addr = web3.eth.accounts[0];
@@ -80,5 +89,3 @@ const test = () => {
 
     console.log(getAllRecords(client_addr));
 };
-
-test();
