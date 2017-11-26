@@ -91,9 +91,12 @@ class Layout extends Component {
                         name="organization"
                         onChange={this.handleInputChange}>
                         <option>Выберите организацию</option>
-                        <option>МФТИ</option>
-                        <option>МГУ</option>
-                        <option>МИСиС</option>
+                        <option>Первый МГМУ им. И.М. Сеченова</option>
+                        <option>МГМСУ им. Евдокимова</option>
+                        <option>БСМП им. Мечникова</option>
+                        <option>Центр ООО Здоровье</option>
+                        <option>Центр 1с</option>
+                        <option>Российский национальный исследовательский медицинский университет имени Н. И. Пирогова</option>
                     </select>
                 </div>
                 <div className="myinput">
@@ -104,7 +107,7 @@ class Layout extends Component {
                         <option>Выберите квалификацию</option>
                         <option>Бакалавриат</option>
                         <option>Магистратура</option>
-                        <option>Аспирантура</option>
+                        <option>Ординатура</option>
                     </select>
                 </div>
                 <button
