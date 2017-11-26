@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+import {Link} from 'react-router';
 
 class Complete extends Component {
 
@@ -11,6 +12,11 @@ class Complete extends Component {
                  <div className="col-md-8">
                      <div style={{marginTop: '100px'}}>
                     <h2>Ваш запрос успешно отправлен</h2>
+                    </div>
+                    <div>
+                        <Link to='/request/1'>
+                            <button className='btn'>Ввести новый запрос</button>
+                        </Link>
                     </div>
                 </div>
                 <div className="col-md-2"></div>
