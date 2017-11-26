@@ -108,7 +108,7 @@ class Layout extends Component {
                     </select>
                 </div>
                 <button
-                    className="mybutton"
+                    className="mybutton button-big"
                     type="submit"
                     onClick={this.handleSubmit}>
                     Отправить
@@ -123,7 +123,7 @@ class Layout extends Component {
             <div>
                 <div> 
                     <button
-                        className="mybutton"
+                        className="mybutton button-big"
                         type="submit"
                         onClick={this.handleSubmit}>
                         Получить информацию

@@ -43,7 +43,6 @@ h2 {
 
 .mybutton {
   width: 100%;
-  max-width: 300px;
   border-radius: 30px;
   background-color: transparent;
   border: 1px solid #fff;
@@ -62,4 +61,12 @@ h2 {
   background-color: #fff;
   color: #000;
   outline: none;
+}
+
+.button-big {
+  max-width: 300px;
+}
+
+.button-small {
+  max-width: 150px;
 }

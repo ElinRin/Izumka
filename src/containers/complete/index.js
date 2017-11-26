@@ -20,9 +20,9 @@ class Complete extends Component {
                      <div style={{marginTop: '100px'}}>
                     <h2>Ваш запрос успешно отправлен</h2>
                     </div>
-                    <div>
+                    <div style={{textAlign: 'center'}}>
                         <Link to='/request/1'>
-                            <button className='btn'>Ввести новый запрос</button>
+                            <button className='btn mybutton button-big'>Ввести новый запрос</button>
                         </Link>
                     </div>
                 </div>

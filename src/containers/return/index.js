@@ -3,6 +3,6 @@ import {Link} from 'react-router';
 
 export default () => (
     <Link to='/'>
-        <button className='btn'>Главная</button>
+        <button className='btn mybutton button-small'>Главная</button>
     </Link>
 )
