@@ -42,8 +42,13 @@ export const getData = (request) => async dispatch => {
 
 };
 
-export const postData = (request) => async dispatch => {
+export const postData = (request, link) => async dispatch => {
     //dispatch(postSuccess(request)); // FIX ME
     process(request);
-    dispatch(browserHistory.push('/complete'));
+    dispatch(browserHistory.push(link));
+};
+
+export const postAndGetData = (request) => async dispatch => {
+    //dispatch(postSuccess(request)); // FIX ME
+    process(request);
 };

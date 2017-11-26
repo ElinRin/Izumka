@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import {getData} from '../../actions';
 
-import './style.css'
+import './style.css';
 
 class Info extends Component {
     componentDidMount() {
