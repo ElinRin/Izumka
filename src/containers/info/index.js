@@ -19,7 +19,7 @@ class Info extends Component {
         let values = [];
     
         for(let org in organizations) {
-            values.push(org);
+            values.push(organizations[org]);
         };
 
         return (
@@ -52,7 +52,6 @@ class Info extends Component {
                 <th>Квалификация</th>
                 </tr>
             </thead>
-            <h2>{info.name}</h2>
             <tbody>
                     {info.organizations && this.renderOrganizations(info.organizations)}
             </tbody>
