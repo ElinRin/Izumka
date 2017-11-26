@@ -101,7 +101,7 @@ class Layout extends Component {
 
     render () {
         const {type} = this.props.params;
-        const link = +type ? '/complite' : '/info' ;
+        const link = +type ? '/complete' : '/info' ;
         return (
             <div className="container">
                 <div className="row">
