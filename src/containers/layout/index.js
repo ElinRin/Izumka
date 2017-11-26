@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import classNames from 'classnames';
 import {Link} from 'react-router';
+import R from 'ramda';
+
+import Info from '../info'
 
 import './style.css';
 
 import {
     getData,
-    postData
+    postData,
+    postAndGetData
 } from '../../actions';
 
 const validateRequire = value => !value;
@@ -17,25 +21,31 @@ class Layout extends Component {
         super();
     
         this.state = {
-          idIn: '',
-          organization: '',
-          qualifications: ''
+            data: {
+                idIn: '',
+                organization: '',
+                qualifications: ''
+            },
+            clickButton: false
         };
     };
     
     formClear() {
-        this.setState({
-            idIn: '',
-            organization: '',
-            qualifications: ''
+        this.setState( {
+            data: {
+                idIn: '',
+                organization: '',
+                qualifications: ''
+            },
+            clickButton: true
         });
     };
     
     validationsForm() {
         let status = true;
 
-        Object.keys(this.state).forEach(item => {
-            if (validateRequire(this.state[item])) {
+        Object.keys(this.state.data).forEach(item => {
+            if (validateRequire(this.state.data[item])) {
             status = false;
             return false;
             }
@@ -53,24 +63,25 @@ class Layout extends Component {
             if (!this.validationsForm()) {
                 return;
             }
-            this.props.postData(this.state);
+            this.props.postData(this.state.data, '/complete');
         } else {
-            if (validateRequire(this.state.idIn)) {
+            if (validateRequire(this.state.data.idIn)) {
                 return;
             }
-            this.props.postData(this.state.idIn);
+            this.props.postAndGetData(this.state.data.idIn);
         }
         
         this.formClear();
     };
 
     handleInputChange = event => {
-        this.setState({
-            [event.target.name]: event.target.value
-        });
+        this.setState(R.merge(
+            this.state,
+            { data: R.merge(this.state.data,  { [event.target.name]: event.target.value})}
+        ));
     };
 
-    renderFields() {
+    renderFields1() {
         return (
             <div> 
                 <div className="myinput">
@@ -95,13 +106,37 @@ class Layout extends Component {
                         <option>Аспирантура</option>
                     </select>
                 </div>
+                <button
+                    className="mybutton"
+                    type="submit"
+                    onClick={this.handleSubmit}>
+                    Отправить
+                </button>
+            </div>
+        )
+    }
+
+    
+    renderFields2() {
+        return (
+            <div>
+                <div> 
+                    <button
+                        className="mybutton"
+                        type="submit"
+                        onClick={this.handleSubmit}>
+                        Получить информацию
+                    </button>
+                </div>
+                <div>
+                    {this.state.clickButton && <Info/>}
+                </div>
             </div>
         )
     }
 
     render () {
         const {type} = this.props.params;
-        const link = +type ? '/complete' : '/info' ;
         return (
             <div className="container">
                 <div className="row">
@@ -113,21 +148,13 @@ class Layout extends Component {
                             <input
                                 className="myinput"
                                 placeholder="Ваш id"
-                                value={this.state.idIn}
+                                value={this.state.data.idIn}
                                 name="idIn"
                                 onChange={this.handleInputChange}>
                             </input>
                         </div>
-                        {+type ? this.renderFields() : ''}
-                        {/*<Link to={link}>*/}
-                            <button
-                                className="mybutton"
-                                type="submit"
-                                onClick={this.handleSubmit}
-                            >
-                                Отправить
-                            </button>
-                        {/*</Link>*/}
+                        {+type ? this.renderFields1() : this.renderFields2()}
+                            
                     </form>
                 </div>
                 <div className="col-md-3"></div>
@@ -142,7 +169,8 @@ const mapStateToProps = state => {
 };
   
 const mapDispatchToProps = {
-    postData
+    postData,
+    postAndGetData
 };
   
 export default connect(mapStateToProps, mapDispatchToProps)(Layout);

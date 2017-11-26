@@ -2,13 +2,13 @@ body {
     height: 100%;
     background-color: #ffffff;
     background-image: url("../public/images/overlay.png"), -moz-linear-gradient(60deg, rgba(0, 0, 0, 0.884) 5%, 
-    rgba(11, 39, 100, 0.815)), url("../public/images/bg.jpg");
+    rgba(19, 60, 148, 0.815)), url("../public/images/bg.jpg");
     background-image: url("../public/images/overlay.png"), -webkit-linear-gradient(60deg, rgba(0, 0, 0, 0.884) 5%, 
-    rgba(11, 39, 100, 0.815)), url("../public/images/bg.jpg");
+    rgba(19, 60, 148, 0.815)), url("../public/images/bg.jpg");
     background-image: url("../public/images/overlay.png"), -ms-linear-gradient(60deg, rgba(0, 0, 0, 0.884) 5%, 
-    rgba(11, 39, 100, 0.815)), url("../public/images/bg.jpg");
+    rgba(19, 60, 148, 0.815)), url("../public/images/bg.jpg");
     background-image: url("../public/images/overlay.png"), linear-gradient(60deg, rgba(0, 0, 0, 0.884) 5%, 
-    rgba(11, 39, 100, 0.815)), url("../public/images/bg.jpg");
+    rgba(19, 60, 148, 0.815)), url("../public/images/bg.jpg");
     background-repeat: repeat,			no-repeat,			no-repeat;
     background-size: 100px 100px, cover,				cover;
     background-position: top left,		center center,		bottom center;

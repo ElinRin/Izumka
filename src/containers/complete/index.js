@@ -1,27 +1,10 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux'
-import classNames from 'classnames';
-
-import {
-    getData,
-    postData
-} from '../../actions';
-
-const validateRequire = value => !value;
+import {connect} from 'react-redux';
+import {Link} from 'react-router';
 
 class Complete extends Component {
-    constructor() {
-        super();
-
-        this.state = {
-          idIn: '',
-          organization: '',
-          qualifications: ''
-        };
-    };
 
     render () {
-        const {type} = this.props.params;
         return (
             <div className="container">
                 <div className="row">
@@ -29,6 +12,11 @@ class Complete extends Component {
                  <div className="col-md-8">
                      <div style={{marginTop: '100px'}}>
                     <h2>Ваш запрос успешно отправлен</h2>
+                    </div>
+                    <div>
+                        <Link to='/request/1'>
+                            <button className='btn'>Ввести новый запрос</button>
+                        </Link>
                     </div>
                 </div>
                 <div className="col-md-2"></div>
@@ -38,12 +26,4 @@ class Complete extends Component {
     };
 };
 
-const mapStateToProps = state => {
-    return {}
-};
-
-const mapDispatchToProps = {
-    postData
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Complete);
+export default Complete;
