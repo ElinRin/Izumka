@@ -10,12 +10,12 @@ class Main extends Component {
                  <div className="col-md-2"></div>
                  <div className="col-md-4">
                     <Link to='/request/1'>
-                        <button className='btn mybutton button-big' style={{marginTop: '200px'}}>Подтверждение квалификации</button>
+                        <button className='mybutton button-big' style={{marginTop: '200px'}}>Подтверждение квалификации</button>
                     </Link>
                 </div>
                 <div className="col-md-4">
                     <Link to='/request/0'>
-                        <button className='btn mybutton button-big' style={{marginTop: '200px'}}>Посмотреть реестр</button>
+                        <button className='mybutton button-big' style={{marginTop: '200px'}}>Посмотреть реестр</button>
                     </Link>
                 </div>
                 <div className="col-md-2"></div>
