@@ -8,11 +8,7 @@ import './style.css'
 
 class Info extends Component {
     componentDidMount() {
-        console.log("bly");
-        console.log(this.props.info);
         this.props.getData("");
-        console.log("bly");
-        console.log(this.props.info);
     }
 
     renderOrganizations(organizations) {
@@ -25,7 +21,7 @@ class Info extends Component {
         return (
             values.map((value, index) =>  (
                         <tr key={index}>
-                            <td>{index}</td>
+                            <td>{index + 1}</td>
                             <td>{value.org}</td>
                             <td>{value.date}</td>
                             <td>{value.qua}</td>
