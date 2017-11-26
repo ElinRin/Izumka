@@ -119,13 +119,15 @@ class Layout extends Component {
                             </input>
                         </div>
                         {+type ? this.renderFields() : ''}
-                        <Link to={link}>
+                        {/*<Link to={link}>*/}
                             <button
                                 className="mybutton"
-                                type="submit">
+                                type="submit"
+                                onClick={this.handleSubmit}
+                            >
                                 Отправить
                             </button>
-                        </Link>
+                        {/*</Link>*/}
                     </form>
                 </div>
                 <div className="col-md-3"></div>
