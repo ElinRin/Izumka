@@ -20,12 +20,11 @@ class Info extends Component {
 
         return (
             values.map((value, index) =>  (
-                        <div key={index}>
-                            <h3>{value.org}</h3>
-                            <div>
-                                <h4>{value.date}&nbsp; {value.qua}</h4>
-                            </div>
-                        </div>
+                        <tr key={index}>
+                            <td>{value.org}</td>
+                            <td>{value.date}</td>
+                            <td>{value.qua}</td>
+                        </tr>
             ))
         )
     }
@@ -34,9 +33,20 @@ class Info extends Component {
 
     const {info} = this.props;
     return (
-        <div className="div-center">
+        <div className="div-center" style={{marginTop: '50px'}}>
         <h2>{info.name}</h2>
-            {info.organizations && this.renderOrganizations(info.organizations)}
+        <table className="table mytable">
+            <thead>
+                <tr>
+                <th>Организация</th>
+                <th>Даты</th>
+                <th>Квалификация</th>
+                </tr>
+            </thead>
+            <tbody>
+                    {info.organizations && this.renderOrganizations(info.organizations)}
+            </tbody>
+            </table>
         </div>
     )
     }
@@ -46,11 +56,9 @@ class Info extends Component {
         return (
             <div className="container">
                 <div className="row">
-                <div className="col-md-2"></div>
-                <div className="col-md-8">
+                <div className="col-md-12">
                 {info.organizations && this.renderFields()}
                 </div>
-                <div className="col-md-2"></div>
                 </div>
             </div>
     )

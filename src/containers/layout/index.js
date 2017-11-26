@@ -145,13 +145,16 @@ class Layout extends Component {
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col-md-12">
+                    <div className="col-md-2">
                         <Return/>
                     </div>
+                    <div className="col-md-8">
+                        <h2 style={{marginTop: '30px'}}>Информация о квалификации</h2>
+                    </div>
+                    <div className="col-md-2"></div>
                 </div>
                 <div className="row">
-                 <div className="col-md-12">
-                    <h2>Запрос</h2>
+                 <div className="col-md-12 div-center">
                     <form className="div-center" onSubmit={this.handleSubmit}>
                         <div className='container'>
                             <input

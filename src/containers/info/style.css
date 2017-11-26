@@ -1,22 +1,11 @@
 .mytable {
-  background: #fff;
-  border: 4px solid #fff;
-  margin-top: 20px;
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-.table-head {
-  text-align: center;
   color: #fff;
-  background-color: rgba(11, 39, 100, 0.815);
-  font-family: Roboto;
-  font-size: 20px;
-  font-weight: 300;
-  padding-top: 10px;
+  margin-top: 20px;
+  overflow: hidden;
+  width: 100%;
 }
 
-th {
-  color: rgba(11, 39, 100, 0.815);
+th, td {
+  padding: 10px;
   text-align: center;
 }
