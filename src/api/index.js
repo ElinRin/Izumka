@@ -1,9 +1,18 @@
-export const getDataApi = async () => {
+export const getDataApi = async (request) => {
     const URL = '';
-    return fetch(URL).then(res => res.json());
+    //return fetch(URL).then(res => res.json());
+    const data = {
+        name : "Пётр",
+        organizations: {
+            1: {"org": "МФТИ", "date": "2010-2014", "qua": "Бакалавриат" },
+            2: {"org": "ВШЭ", "date": "2015-2017", "qua": "Магистратура" },
+            3: {"org": "Вуз-шмуз", "date": "2014-2017", "qua": "Доп курсы-шмурсы" }
+        }
+    };
+    return data;
 };
 
-export const postDataApi = async () => {
+export const postDataApi = async (request) => {
     const URL = '';
     return fetch('url', {
         method: 'POST',

@@ -7,5 +7,6 @@ import message from './message';
 export default combineReducers({
     routing: routerReducer,
         userPage,
-        message
+        message,
+        info
 });
