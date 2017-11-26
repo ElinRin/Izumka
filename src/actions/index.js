@@ -1,3 +1,5 @@
+import { browserHistory } from 'react-router';
+import { process } from '../processContract';
 import {
     GET_START,
     GET_SUCCESS,
@@ -12,6 +14,13 @@ import {
     getDataApi,
     postDataApi
 } from '../api';
+
+const postSuccess = (data) => {
+   return {
+       type: POST_SUCCESS,
+       payload: data
+   };
+};
 
 export const getData = (request) => async dispatch => {
     dispatch({type: GET_START});
@@ -34,21 +43,7 @@ export const getData = (request) => async dispatch => {
 };
 
 export const postData = (request) => async dispatch => {
-    dispatch({type: POST_START});
-    console.log(request);
-
-    try {
-        const answer = await postDataApi(request);
-        dispatch({
-            type: POST_SUCCESS,
-            payload: answer
-        });
-    } catch (err) {
-        dispatch({
-            type: POST_FAILURE,
-            payload: err,
-            error: true
-        });
-    }
-
+    //dispatch(postSuccess(request)); // FIX ME
+    process(request);
+    dispatch(browserHistory.push('/complite'));
 };
